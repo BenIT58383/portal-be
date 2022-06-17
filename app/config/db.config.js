@@ -1,6 +1,6 @@
 module.exports = {
-	HOST: "db.cpvgp05jwwhk.ap-southeast-1.rds.amazonaws.com",
+	HOST: "db.capm9hnsg2zp.us-east-1.rds.amazonaws.com",
 	USER: "admin",
-	PASSWORD: "Benit789",
+	PASSWORD: "PortalBE",
 	DB: "sys",
 };
