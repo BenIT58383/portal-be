@@ -1,6 +1,6 @@
 module.exports = {
-	HOST: "db.capm9hnsg2zp.us-east-1.rds.amazonaws.com",
-	USER: "admin",
-	PASSWORD: "PortalBE",
-	DB: "sys",
+	HOST: "us-cdbr-east-06.cleardb.net",
+	USER: "b5e596b8f70c34",
+	PASSWORD: "c6297ee8",
+	DB: "heroku_06a1fbccef4a729",
 };
