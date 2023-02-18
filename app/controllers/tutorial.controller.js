@@ -8,6 +8,7 @@ exports.create = (req, res) => {
 		res.status(400).send({
 			message: "Content can not be empty!",
 		});
+		return
 	}
 
 	// Save User in the database
