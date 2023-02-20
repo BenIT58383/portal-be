@@ -30,7 +30,6 @@ exports.findAll = (req, res) => {
 		if (err) {
 			res.status(500).send({ message: err.message || "Some error occurred while retrieving user." })
 		} else {
-			console.log(3333333333333333, typeof data[0].created_at);
 			for (let item of data) {
 				item.created_at = moment(item.created_at).format('YYYY-MM-DD HH:mm:ss')
 				item.updated_at = moment(item.updated_at).format('YYYY-MM-DD HH:mm:ss')
