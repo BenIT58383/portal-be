@@ -44,6 +44,17 @@ User.findById = (id, result) => {
 	});
 };
 
+//get detail data
+User.deleteUser = (id, result) => {
+	sql.query(`DELETE FROM users WHERE id = '${id}'`, (err, res) => {
+		if(res.affectedRows){
+			return result(0, 'xóa thành công!')
+		}else{
+			return result(err)
+		}
+	});
+};
+
 //get all data
 User.getAll = (title, result) => {
 	let query = "SELECT * FROM users";

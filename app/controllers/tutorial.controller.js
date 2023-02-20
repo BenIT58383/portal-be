@@ -60,3 +60,14 @@ exports.findOne = (req, res) => {
 		}
 	});
 };
+
+// Find a single User by Id
+exports.deleteUser = (req, res) => {
+	User.deleteUser(req.params.id, (err, data) => {
+		if(data){
+			res.status(200).send({message: `Xóa thành công`,});
+		}else{
+			res.status(400).send({message: `Xóa thất bại`,});
+		}
+	});
+};
