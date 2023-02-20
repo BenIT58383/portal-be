@@ -10,6 +10,5 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
   console.log('Database connected!');
-  console.log('Database connected 3!');
 });
 module.exports = connection;

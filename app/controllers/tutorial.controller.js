@@ -1,4 +1,5 @@
 const User = require("../models/tutorial.model.js");
+const moment = require('moment')
 
 // Create and Save a new User
 exports.create = (req, res) => {
@@ -26,11 +27,17 @@ exports.findAll = (req, res) => {
 	const title = req.query.title;
 
 	User.getAll(title, (err, data) => {
-		if (err)
-			res.status(500).send({
-				message: err.message || "Some error occurred while retrieving user.",
-			});
-		else res.send(data);
+		if (err) {
+			res.status(500).send({ message: err.message || "Some error occurred while retrieving user." })
+		} else {
+			console.log(3333333333333333, typeof data[0].created_at);
+			for (let item of data) {
+				item.created_at = moment(item.created_at).format('YYYY-MM-DD HH:mm:ss')
+				item.updated_at = moment(item.updated_at).format('YYYY-MM-DD HH:mm:ss')
+			}
+
+			res.send(data)
+		}
 	});
 };
 
@@ -47,6 +54,10 @@ exports.findOne = (req, res) => {
 					message: "Error retrieving User with id " + req.params.id,
 				});
 			}
-		} else res.send(data);
+		} else {
+			data.created_at = moment(data.created_at).format('YYYY-MM-DD HH:mm:ss')
+			data.updated_at = moment(data.updated_at).format('YYYY-MM-DD HH:mm:ss')
+			res.send(data);
+		}
 	});
 };

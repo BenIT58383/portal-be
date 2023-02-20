@@ -12,6 +12,5 @@ module.exports = app => {
   // Retrieve a single User with id
   router.get("/:id", users.findOne);
 
-
   app.use('/api', router);
 };
