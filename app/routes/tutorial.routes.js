@@ -13,7 +13,7 @@ module.exports = app => {
   router.get("/:id", users.findOne);
 
   // Retrieve a single User with id
-  router.post("/delete/:id", users.deleteUser);
+  router.delete("/delete/:id", users.deleteUser);
 
   app.use('/api', router);
 };
