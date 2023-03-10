@@ -30,19 +30,24 @@ exports.findAll = (req, res) => {
 		if (err) {
 			res.status(500).send({ message: err.message || "Some error occurred while retrieving user." })
 		} else {
-			for (let item of data) {
-				item.created_at = moment(item.created_at).format('YYYY-MM-DD HH:mm:ss')
-				item.updated_at = moment(item.updated_at).format('YYYY-MM-DD HH:mm:ss')
+			if(data && data.length && Array.isArray(data)){
+				for (let item of data) {
+					item.created_at = moment(item.created_at).format('YYYY-MM-DD HH:mm:ss')
+					item.updated_at = moment(item.updated_at).format('YYYY-MM-DD HH:mm:ss')
+				}
+				res.send(data)
+			}else if(data) {
+				res.send(data)
+			}else{
+				res.send([])
 			}
-
-			res.send(data)
 		}
 	});
 };
 
 // Find a single User by Id
-exports.findOne = (req, res) => {
-	User.findById(req.params.id, (err, data) => {
+exports.findOne = async (req, res) => {
+	User.findOne(req.params.id, (err, data) => {
 		if (err) {
 			if (err.kind === "not_found") {
 				res.status(404).send({

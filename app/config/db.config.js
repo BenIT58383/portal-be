@@ -1,6 +1,6 @@
 module.exports = {
-	HOST: "103.178.235.4",
-	USER: "nthongtinbaohiem_portal",
-	PASSWORD: "portal_db_257",
-	DB: "nthongtinbaohiem_portal",
+	HOST: "us-cdbr-east-06.cleardb.net",
+	USER: "be25e30d56d6a8",
+	PASSWORD: "c2d1d858",
+	DB: "heroku_c08fa020b48f013",
 };

@@ -30,8 +30,8 @@ User.create = (newTutorial, result) => {
 };
 
 //get detail data
-User.findById = (id, result) => {
-	sql.query(`SELECT * FROM users WHERE id = ${id}`, (err, res) => {
+User.findOne = (id, result) => {
+	sql.query(`SELECT * FROM users WHERE id = '${id}'`, (err, res) => {
 		if (err) {
 			return result(err, null);
 		}
